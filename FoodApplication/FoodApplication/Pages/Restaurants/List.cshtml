@@ -10,8 +10,7 @@
     <div class="form-group">
         <div class="input-group">
             <input type="search"class="form-control" 
-                   value="" 
-                   name="searchTerm" />
+                   asp-for="SearchTerm"/>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default">
                     <i class="glyphicon glyphicon-search"> Search </i>
@@ -30,6 +29,13 @@
         <td> @restaurant.Name </td>
         <td> @restaurant.Location </td>
         <td> @restaurant.CuisineType </td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./PageDetail"
+               asp-route-restaurantId="@restaurant.Id">
+                <i class="glyphicon glyphicon-zoom-in"></i>
+            </a>
+        </td>
     </tr>
     }
 </table>
