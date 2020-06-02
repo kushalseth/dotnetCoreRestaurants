@@ -6,7 +6,7 @@ namespace FoodApplication.Data
 {
     public class InMemoryRestaurantData : IRestaurantData
     {
-        List<Restaurant> restaurants;
+        private List<Restaurant> restaurants;
         public InMemoryRestaurantData()
         {
             restaurants = new List<Restaurant>
@@ -30,6 +30,11 @@ namespace FoodApplication.Data
                    where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
                    orderby r.Name                   
                    select r;
+        }
+
+        public Restaurant GetById(int id)
+        {
+            return restaurants.SingleOrDefault(x => x.Id == id);
         }
     }
 }

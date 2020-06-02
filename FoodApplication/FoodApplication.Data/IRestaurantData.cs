@@ -9,5 +9,6 @@ namespace FoodApplication.Data
         IEnumerable<Restaurant> GetAll();
 
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
+        Restaurant GetById(int i);
     }
 }

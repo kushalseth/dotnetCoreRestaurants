@@ -25,11 +25,18 @@ namespace FoodApplication.Pages.Restaurants
 
         public string Message { get; set; }
         public IEnumerable<Restaurant> Restaurants { get; set; }
-        public void OnGet(string searchTerm)
+
+        // this tells asp.net, that when you execute the class we are getting ready to execute a 
+        // method on this class to process an HTTP request
+        // by default it binds only for HTTPPost requests, we can enable using SupportsGet = true
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+        public void OnGet()//(string searchTerm)
         {
             //Message = "Hello World";
+            //SearchTerm = searchTerm;
             Message = config["Message"];
-            Restaurants = restaurantData.GetRestaurantsByName(searchTerm);
+            Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
     }
 }
