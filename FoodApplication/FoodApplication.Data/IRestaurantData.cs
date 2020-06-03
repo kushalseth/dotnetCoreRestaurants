@@ -7,8 +7,9 @@ namespace FoodApplication.Data
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
-
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
         Restaurant GetById(int i);
+        Restaurant Update(Restaurant updatedRestaurant);
+        int Commit();
     }
 }

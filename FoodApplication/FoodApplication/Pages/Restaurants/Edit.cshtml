@@ -21,7 +21,7 @@
     <div class="form-group">
         <label asp-for="Restaurant.CuisineType"></label>
         <select class="form-control" asp-for="Restaurant.CuisineType" 
-                                    asp-items="">
+                                    asp-items="Model.Cuisines">
 
         </select>
     </div>
