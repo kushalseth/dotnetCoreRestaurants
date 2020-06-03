@@ -12,16 +12,21 @@ namespace FoodApplication.Pages.Restaurants
     public class EditModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
-        public Restaurant MyProperty { get; set; }
+        public Restaurant Restaurant { get; set; }
 
         public EditModel(IRestaurantData restaurantData)
         {
             this.restaurantData = restaurantData;
         }
 
-        public void OnGet(int restaurantId)
+        public IActionResult OnGet(int restaurantId)
         {
-
+            Restaurant = restaurantData.GetById(restaurantId);
+            if(Restaurant == null)
+            {
+                return RedirectToPage("./NotFound");
+            }
+            return Page();
         }
     }
 }
