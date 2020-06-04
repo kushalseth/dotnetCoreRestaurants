@@ -50,6 +50,13 @@ namespace FoodApplication.Data
             return restaurant;
         }
 
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            restaurants.Add(newRestaurant);
+            newRestaurant.Id = restaurants.Max(x => x.Id) + 1;
+            return newRestaurant;
+        }
+
         public int Commit()
         {
             return 0;
