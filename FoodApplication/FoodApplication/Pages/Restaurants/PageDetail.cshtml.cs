@@ -25,6 +25,9 @@ namespace FoodApplication.Pages.Restaurants
         public Restaurant Restaurant { get; set; }
         public string Message { get; set; }
 
+        [TempData]
+        public string SuccessMessage { get; set; }
+
         // strict input model, so we are not making a Public property
         public IActionResult OnGet(int restaurantId)
         {
