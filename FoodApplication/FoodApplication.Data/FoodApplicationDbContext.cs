@@ -8,6 +8,12 @@ namespace FoodApplication.Data
 {
     public class FoodApplicationDbContext : DbContext
     {
+        public FoodApplicationDbContext(DbContextOptions<FoodApplicationDbContext> options)
+            : base(options)
+        {
+
+        }
+
         public DbSet<Restaurant> Restaurants { get; set; }
     }
 }
