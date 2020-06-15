@@ -32,8 +32,7 @@ namespace FoodApplication
                 options.UseSqlServer(Configuration.GetConnectionString("FoodApplicationDb"));
             });
 
-            // doonot use singleton for production
-            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+            services.AddScoped<IRestaurantData, SQLRestaurantData>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
