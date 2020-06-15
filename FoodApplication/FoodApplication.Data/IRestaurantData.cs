@@ -10,8 +10,8 @@ namespace FoodApplication.Data
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
         Restaurant GetById(int i);
         Restaurant Update(Restaurant updatedRestaurant);
-
         Restaurant Add(Restaurant newRestaurant);
+        Restaurant Delete(int id);
         int Commit();
     }
 }
