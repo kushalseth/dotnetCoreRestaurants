@@ -61,6 +61,7 @@ namespace FoodApplication.Pages.Restaurants
             {
                 restaurantData.Add(Restaurant);
             }
+            restaurantData.Commit();
 
             TempData["Message"] = "Restaurant saved!";
             Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();

@@ -45,7 +45,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2020 - FoodApplication</p>
+            @RenderSection("footer", required: false)
+            <p>&copy; </p>
         </footer>
     </div>
 
