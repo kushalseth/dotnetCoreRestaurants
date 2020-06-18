@@ -59,7 +59,9 @@ namespace FoodApplication
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+           
+             app.UseStaticFiles();
+            app.UseNodeModules(env);
             app.UseCookiePolicy();
 
             app.UseMvc();
