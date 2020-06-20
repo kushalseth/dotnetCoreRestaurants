@@ -58,6 +58,8 @@ namespace FoodApplication
                 app.UseHsts();
             }
 
+            app.Use(SayHelloMiddleware);
+
             app.UseHttpsRedirection();
            
              app.UseStaticFiles();
@@ -65,6 +67,21 @@ namespace FoodApplication
             app.UseCookiePolicy();
 
             app.UseMvc();
+        }
+
+        private RequestDelegate SayHelloMiddleware(RequestDelegate next)
+        {
+            return async ctx => {
+                if(ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("welcome to netcore");
+                }
+                else
+                {
+                    await next(ctx);
+                }
+                
+            };
         }
     }
 }

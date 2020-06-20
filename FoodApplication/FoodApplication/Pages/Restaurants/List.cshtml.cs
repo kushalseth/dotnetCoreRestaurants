@@ -7,6 +7,7 @@ using FoodApplication.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace FoodApplication.Pages.Restaurants
 {
@@ -15,12 +16,15 @@ namespace FoodApplication.Pages.Restaurants
         // set config into a private field
         private readonly IConfiguration config;
         private readonly IRestaurantData restaurantData;
+        private readonly ILogger<ListModel> logger;
 
         public ListModel(IConfiguration config, 
-                         IRestaurantData restaurantData)
+                         IRestaurantData restaurantData,
+                         ILogger<ListModel> logger)
         {
             this.config = config;
             this.restaurantData = restaurantData;
+            this.logger = logger;
         }
 
         public string Message { get; set; }
@@ -33,6 +37,7 @@ namespace FoodApplication.Pages.Restaurants
         public string SearchTerm { get; set; }
         public void OnGet()//(string searchTerm)
         {
+            logger.LogError("execute");
             //Message = "Hello World";
             //SearchTerm = searchTerm;
             Message = config["Message"];
